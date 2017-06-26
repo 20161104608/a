@@ -13,7 +13,9 @@ int main(int argc,const char * argv[]){
     double latitude,longitude,v,course;
     FILE *fp2;
     fp2=fopen("//Users//S20161104608//Desktop//Gps1.log","r");
-    if(fp2==NULL)
+    while(fp2)
+    {
+        if(fp2==NULL)
     {
         printf("打开文件错误，或者要打开的文件不存在");
     
@@ -28,7 +30,7 @@ int main(int argc,const char * argv[]){
                 printf("该位置为北纬%1f度\n",latitude);
             }
             else
-            {
+            {                                                                                                                                                                                             
                 printf("该位置为南纬%1f度\n",latitude);
             }
             if(longitude1=='E')
@@ -46,5 +48,6 @@ int main(int argc,const char * argv[]){
                 printf("无效定位\n");
             }
     }
-    return 0;
+    }
+    fclose(fp2);
 }
